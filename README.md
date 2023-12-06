@@ -22,4 +22,7 @@ baselines
     rnn.py
     stgcn.py
     experiment_base #file
-        
+
+
+## urban-core training command 
+python train.py --adj_path= --num_nodes=304 --in_dim=1 --out_dim=1 --data_path=data/urban-core --adj_path='data/urban-core/distance.csv'

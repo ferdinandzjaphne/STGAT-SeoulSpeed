@@ -297,12 +297,22 @@ def add_nodes_edges(adj_filename, num_of_vertices):
         header = f.__next__()
         edge_list = [(int(i[0]), int(i[1]), float(i[2])) for i in reader]
 
+    for i in edge_list:
+        print(i)
+    
+    print(len(edge_list))
+
     src, dst, cost = tuple(zip(*edge_list))
+    print(src[:10])
+    print(dst[:10])
+    print(cost[:10])
+
     # add edges , Assigning edge features
     g.add_edges(src, dst)
     g.edges[src, dst].data['w'] = torch.Tensor(cost)
     print('We have %d nodes.' % g.number_of_nodes())
     print('We have %d edges.' % g.number_of_edges())
+    print(len(src))
     # print("src", src)
     # print("dst", dst)
     # print("cost", cost)
